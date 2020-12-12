@@ -1,0 +1,25 @@
+def count(s):
+    a = len(s)
+    letter=0
+    word=1
+    sentence=0
+    for i in s:
+        if i.isalpha():
+            letter+=1
+        elif i.isspace():
+            word+=1
+        elif i=='.' or i=='!' or i=='?':
+            sentence += 1
+ #   print(letter)
+ #   print(word)
+#    print(sentence)
+
+    index = 0.0588 * (letter*100/word) - 0.296 * (sentence*100/word) - 15.8
+    index=round(index)
+    if 1<index<16:
+        print('Grade', index)
+    if index<1:
+        print('Before Grade 1')
+    if index>=16:
+        print('Grade 16+')
+count(input())
