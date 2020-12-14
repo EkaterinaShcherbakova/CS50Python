@@ -1,0 +1,30 @@
+a=1
+while a==1:
+    key=input('Please insert the key: ').upper()
+    if 25<len(key)<27:
+        key1=key.lower()
+        str=input('PLease type the message for encryption: ')
+        a= len(str)
+        alf='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        alf1=alf.lower()
+        res=[]
+        for i in range (a):
+
+            if str[i].isalpha():
+                if 65<ord(str[i])<90:
+#                    print(alf.find(str[i]))
+                    res.append(key[alf.find(str[i])])
+
+                elif 97<ord(str[i])<122:
+#                    print(key1.find(str[i]))
+                    res.append(key1[alf1.find(str[i])])
+
+            else:
+                res.append(str[i])
+
+        for i in res:
+            print (i, end="")
+        print('\n')
+        a=0
+    else:
+        print('Key must contain 26 characters. Try again.')
