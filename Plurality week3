@@ -1,0 +1,35 @@
+def vote():
+    start =1
+    while start ==1:
+        num=int(input('Number of voters in voting: '))
+        candidatestr = input('Input all candidates names: ')
+        candidatelst = candidatestr.split()
+        candidates = {}
+        winners=0
+        winner=0
+        for n in candidatelst:
+            candidates[n] = 0  # candidates dictionary with 0 votes
+#        print(candidates)
+        while num>0:
+            name=input('Input your candidate name to vote: ')
+            if name in candidates:
+        #        print: (name + 'has ' + candidates[name] + 'votes' )
+                candidates[name]+=1
+                num-=1
+            else:
+                print('Invalid vote')
+        maxvote=max(candidates.values())
+#        print(maxvote)
+        for key in candidates.keys():
+            if candidates[key] == maxvote:
+                winners+=1
+                if winners > 1:
+                    start= int(input('There is more than one winner! Restart the election? 1-yes, 2-no: ',))
+                    continue
+                elif winners==1:
+                    winner = key
+                    start = 0
+        if start ==0:
+            print(winner, ' won the election!')
+
+vote()
